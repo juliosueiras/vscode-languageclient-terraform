@@ -1,0 +1,64 @@
+{
+	"name": "vscode-languageclient-terraform",
+	"description": "Terraform LSP Client for VSCode",
+	"author": "Julio Tain Sueiras",
+	"license": "MIT",
+	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/juliosueiras/vscode-languageclient-terraform"
+	},
+	"publisher": "juliosueiras",
+	"categories": [],
+	"engines": {
+		"vscode": "^1.23.0"
+	},
+	"activationEvents": [
+		"onLanguage:Terraform"
+	],
+	"main": "./client/out/extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "Terraform",
+				"extensions": [
+					".tf"
+				]
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Client configuration",
+			"properties": {
+				"terraformLanguageServer.maxNumberOfProblems": {
+					"type": "number",
+					"default": 100,
+					"description": "Controls the maximum number of problems produced by the server."
+				},
+				"terraformLanguageServer.trace.server": {
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VSCode and the terraformLanguageServer service."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "cd client && cd .. && npm run compile",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"postinstall": "cd client && npm install && npm install && cd ..",
+		"test": "sh ./scripts/e2e.sh"
+	},
+	"devDependencies": {
+		"@types/mocha": "^5.2.0",
+		"@types/node": "^8.0.0",
+		"tslint": "^5.11.0",
+		"typescript": "^3.1.3"
+	}
+}
