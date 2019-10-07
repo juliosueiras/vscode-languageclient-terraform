@@ -3,7 +3,7 @@
 
 This repository was an initial example repository how to integrate terraform-lsp into vscode.
 
-In future you will find an interagtion in [vscode-terraform](https://github.com/mauve/vscode-terraform) at [1.4.0](https://github.com/mauve/vscode-terraform/releases/tag/1.4.0).
+In future you will find an interagtion in [vscode-terraform](https://github.com/mauve/vscode-terraform) at 1.4.0.
 
 
 
